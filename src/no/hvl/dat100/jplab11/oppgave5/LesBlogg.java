@@ -22,7 +22,52 @@ public class LesBlogg {
 
 	public static Blogg les(String mappe, String filnavn) {
 
-		throw new UnsupportedOperationException(TODO.method());
+		BufferedReader scanner=null;
+		String location="" + mappe + filnavn;
+		try {
+			scanner =new BufferedReader(new FileReader(location));
+			int length=java.lang.Integer.parseInt(scanner.readLine());
+			Blogg innlest = new Blogg(length);
+			
+			for(int i=0; i<length; i++) {
+				if(scanner.readLine().equals(TEKST)) {
+					int id= java.lang.Integer.parseInt(scanner.readLine());
+					String bruker=scanner.readLine();
+					String dato=scanner.readLine();
+					int likes=java.lang.Integer.parseInt(scanner.readLine());
+					String tekst=scanner.readLine();
+					Tekst tekstInnlegg=new Tekst(id, bruker, dato, likes, tekst);
+					innlest.leggTil(tekstInnlegg);
+					
+				}else if(scanner.readLine().equals(BILDE)) {
+					int id= java.lang.Integer.parseInt(scanner.readLine());
+					String bruker=scanner.readLine();
+					String dato=scanner.readLine();
+					int likes=java.lang.Integer.parseInt(scanner.readLine());
+					String bildetekst=scanner.readLine();
+					String url =scanner.readLine();
+					Bilde bildeInnlegg=new Bilde(id, bruker, dato, likes, bildetekst, url);
+					innlest.leggTil(bildeInnlegg);
+				}
+			}
+			return innlest;
+			
+			
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}catch(IOException e){
+			e.printStackTrace();
+		}finally {
+			if(scanner!=null) {
+			try {
+				scanner.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			}
+		}
+		return null;
 
 	}
 }

@@ -4,35 +4,57 @@ import no.hvl.dat100.jplab11.common.TODO;
 
 public class Bilde extends Tekst {
 
-	// TODO - objekt variable
+	String url;
 	
 	public Bilde(int id, String bruker, String dato, String tekst, String url) {
-		throw new UnsupportedOperationException(TODO.constructor("Bilde"));
+		super(id, bruker, dato, tekst);
+		this.url=url;
 	}
 
 	public Bilde(int id, String bruker, String dato, int likes, String tekst, String url) {
-		throw new UnsupportedOperationException(TODO.constructor("Bilde"));
+		super(id, bruker, dato, likes, tekst);
+		this.url=url;
 	}
 	
 	public String getUrl() {
-		throw new UnsupportedOperationException(TODO.method());
+		return url;
 
 	}
 
 	public void setUrl(String url) {
-		throw new UnsupportedOperationException(TODO.method());
+		this.url=url;
 	}
 
 	@Override
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method ());
+		String str="BILDE";
+		str+="\n";
+		str+=id;
+		str+="\n";
+		str+=bruker;
+		str+="\n";
+		str+=dato;
+		str+="\n";
+		str+=likes;
+		str+="\n";
+		str+="et bilde";
+		str+="\n";
+		str+=url;
+		str+="\n";
+		return str;
 
 	}
 
 	// Metoden nedenfor er kun for valgfri oppgave 6
 	public String toHTML() {
 		
-		throw new UnsupportedOperationException(TODO.method());
-				
+		super.toHTML();
+		String str="<p>" + tekst + "<p>";
+		str+="\n";
+		str+="<iframe src=\"" + url + "\" height=600 width=800></iframe>";
+		str+="\n";
+		str+="<hr>";
+		
+		return str;		
 	}
 }
