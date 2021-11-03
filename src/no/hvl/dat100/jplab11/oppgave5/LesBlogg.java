@@ -30,7 +30,8 @@ public class LesBlogg {
 			Blogg innlest = new Blogg(length);
 			
 			for(int i=0; i<length; i++) {
-				if(scanner.readLine().equals(TEKST)) {
+				String type=scanner.readLine();
+				if(type.equals(TEKST)) {
 					int id= java.lang.Integer.parseInt(scanner.readLine());
 					String bruker=scanner.readLine();
 					String dato=scanner.readLine();
@@ -39,7 +40,7 @@ public class LesBlogg {
 					Tekst tekstInnlegg=new Tekst(id, bruker, dato, likes, tekst);
 					innlest.leggTil(tekstInnlegg);
 					
-				}else if(scanner.readLine().equals(BILDE)) {
+				}else if(type.equals(BILDE)) {
 					int id= java.lang.Integer.parseInt(scanner.readLine());
 					String bruker=scanner.readLine();
 					String dato=scanner.readLine();
