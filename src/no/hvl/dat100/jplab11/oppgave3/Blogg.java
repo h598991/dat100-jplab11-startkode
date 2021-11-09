@@ -114,7 +114,9 @@ public class Blogg {
 		int nextResult=0;
 		for (int i=0; i<nesteLedig; i++) {
 			if(innleggtabell[i].toString().contains(keyword)) {
-				result[nextResult]=innleggtabell[i].getId();			}
+				result[nextResult]=innleggtabell[i].getId();
+				nextResult++;
+				}
 		}
 		return result;
 
